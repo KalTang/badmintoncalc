@@ -1,6 +1,6 @@
 <Div align="center">
 
-## :video_game: Badminton Calculator :heart:
+## Badminton Calculator
 
 </div>
 
