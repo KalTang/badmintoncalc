@@ -46,6 +46,10 @@
 3. guests can enter the session via ID and pass set
 4. Guest can make a direct payment from the app to the host or select multiple guests (if possible).
 
+### MVP 1
+
+1. A form that calculates the cost
+
 ## :file_folder: &nbsp; SUPPORTING DOCUMENTS
 
 ### Database Diagram:
