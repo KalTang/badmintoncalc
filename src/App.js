@@ -9,6 +9,8 @@ const Body = styled.body`
 const BodyWrapper = styled.body`
     background-color: #282c34;
     min-height: 100vh;
+    display: flex;
+    justify-content: center;
 `;
 
 function App() {
