@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const FormContainer = styled.div`
+const StyledFormContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
 `;
 
-const Form = styled.form`
+const StyledForm = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,13 +15,13 @@ const Form = styled.form`
     margin-top: 10%;
 `;
 
-const Label = styled.label`
+const StyledLabel = styled.label`
     font-weight: bold;
     margin-bottom: 0.3rem;
     color: #61dafb;
 `;
 
-const Input = styled.input`
+const StyledInput = styled.input`
     padding: 0.5rem;
     border: none;
     border-bottom: 1px solid #61dafb;
@@ -31,6 +31,22 @@ const Input = styled.input`
     font-weight: 600;
     text-align: center;
     margin-bottom: 2em;
+`;
+
+const StyledButton = styled.button`
+    font-size: 1em;
+    font-weight: 600;
+    color: #fff;
+    border: 2px solid #61dafb;
+    border-radius: 99px;
+    cursor: pointer;
+    padding: 5%;
+    background-color: transparent;
+    min-width: 200px;
+
+    &:hover {
+        background-color: #61dafb;
+    }
 `;
 
 const FormComponent = () => {
@@ -55,52 +71,59 @@ const FormComponent = () => {
     };
 
     return (
-        <FormContainer>
-            <Form onSubmit={handleSubmit}>
+        <StyledFormContainer>
+            <StyledForm onSubmit={handleSubmit}>
                 {/* Court numbers */}
-                <Label htmlFor="courts">Number of Courts</Label>
-                <Input
+                <StyledLabel htmlFor="courts">Number of Courts</StyledLabel>
+                <StyledInput
                     type="text"
                     id="courts"
                     name="courts"
                     onChange={handleChange}
-                ></Input>
+                    autoComplete="off"
+                ></StyledInput>
                 {/* Court costs each hour */}
-                <Label htmlFor="courtCost">Court Cost per hour</Label>
-                <Input
+                <StyledLabel htmlFor="courtCost">
+                    Court Cost per hour
+                </StyledLabel>
+                <StyledInput
                     type="text"
                     id="courtCost"
                     name="courtCost"
                     onChange={handleChange}
-                ></Input>
+                    autoComplete="off"
+                ></StyledInput>
                 {/* Hours */}
-                <Label htmlFor="hours">Hours Rented</Label>
-                <Input
+                <StyledLabel htmlFor="hours">Hours Rented</StyledLabel>
+                <StyledInput
                     type="text"
                     id="hours"
                     name="hours"
                     onChange={handleChange}
-                ></Input>
+                    autoComplete="off"
+                ></StyledInput>
                 {/* birdies */}
-                <Label htmlFor="birdieCost">Birde Cost</Label>
-                <Input
+                <StyledLabel htmlFor="birdieCost">Birde Cost</StyledLabel>
+                <StyledInput
                     type="text"
                     id="birdieCost"
                     name="birdieCost"
                     onChange={handleChange}
-                ></Input>
+                    autoComplete="off"
+                ></StyledInput>
                 {/* numbers of birdies used  */}
-                <Label htmlFor="birdies">Birdies used? </Label>
-                <Input
+                <StyledLabel htmlFor="birdies">Birdies used? </StyledLabel>
+                <StyledInput
                     type="text"
                     id="birdies"
                     name="birdies"
                     onChange={handleChange}
-                ></Input>
+                    autoComplete="off"
+                ></StyledInput>
 
-                <button type="submit">Submit</button>
-            </Form>
-        </FormContainer>
+                <StyledButton type="submit">Submit</StyledButton>
+            </StyledForm>
+        </StyledFormContainer>
     );
 };
 
