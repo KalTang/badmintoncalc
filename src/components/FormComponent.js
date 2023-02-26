@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const FormContainer = styled.div`
@@ -34,24 +34,71 @@ const Input = styled.input`
 `;
 
 const FormComponent = () => {
+    const [formData, setFormData] = useState({
+        courts: '',
+        courtCost: '',
+        hours: '',
+        birdieCost: '',
+        birdies: '',
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((data) => {
+            return { ...data, [name]: value };
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(formData);
+    };
+
     return (
         <FormContainer>
-            <Form action="">
+            <Form onSubmit={handleSubmit}>
                 {/* Court numbers */}
-                <Label htmlfor="birde-cost">Number of Courts</Label>
-                <Input type="text" id="courts" name="courts"></Input>
+                <Label htmlFor="courts">Number of Courts</Label>
+                <Input
+                    type="text"
+                    id="courts"
+                    name="courts"
+                    onChange={handleChange}
+                ></Input>
                 {/* Court costs each hour */}
-                <Label for="birde-cost">Court Cost per hour</Label>
-                <Input type="text" id="ccost" name="ccost"></Input>
+                <Label htmlFor="courtCost">Court Cost per hour</Label>
+                <Input
+                    type="text"
+                    id="courtCost"
+                    name="courtCost"
+                    onChange={handleChange}
+                ></Input>
                 {/* Hours */}
-                <Label for="birde-cost">Hours Rented</Label>
-                <Input type="text" id="hours" name="hours"></Input>
+                <Label htmlFor="hours">Hours Rented</Label>
+                <Input
+                    type="text"
+                    id="hours"
+                    name="hours"
+                    onChange={handleChange}
+                ></Input>
                 {/* birdies */}
-                <Label for="birde-cost">Birde Cost</Label>
-                <Input type="text" id="birdyC" name="birdyC"></Input>
+                <Label htmlFor="birdieCost">Birde Cost</Label>
+                <Input
+                    type="text"
+                    id="birdieCost"
+                    name="birdieCost"
+                    onChange={handleChange}
+                ></Input>
                 {/* numbers of birdies used  */}
-                <Label for="birde-cost">Birdies used? </Label>
-                <Input type="text" id="birdies" name="birdies"></Input>
+                <Label htmlFor="birdies">Birdies used? </Label>
+                <Input
+                    type="text"
+                    id="birdies"
+                    name="birdies"
+                    onChange={handleChange}
+                ></Input>
+
+                <button type="submit">Submit</button>
             </Form>
         </FormContainer>
     );
