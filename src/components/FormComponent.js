@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const StyledFormContainer = styled.div`
     display: flex;
@@ -120,8 +121,9 @@ const FormComponent = () => {
                     onChange={handleChange}
                     autoComplete="off"
                 ></StyledInput>
-
-                <StyledButton type="submit">Submit</StyledButton>
+                <Link to="/cost">
+                    <StyledButton type="submit">Submit</StyledButton>
+                </Link>
             </StyledForm>
         </StyledFormContainer>
     );
