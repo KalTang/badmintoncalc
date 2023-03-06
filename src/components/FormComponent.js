@@ -52,11 +52,12 @@ const StyledButton = styled.button`
 
 const FormComponent = () => {
     const [formData, setFormData] = useState({
-        courts: '',
-        courtCost: '',
-        hours: '',
-        birdieCost: '',
-        birdies: '',
+        courts: '0',
+        courtCost: '0',
+        hours: '0',
+        birdieCost: '0',
+        birdies: '0',
+        players: '0',
     });
 
     const handleChange = (e) => {
@@ -68,12 +69,31 @@ const FormComponent = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
+
+        // cost calculations
+        const { courts, courtCost, hours, birdieCost, birdies, players } =
+            formData;
+        const birdieTotal = birdies * birdieCost;
+        const courtTotal = courtCost * courts * hours;
+        const totalCost = (birdieTotal + courtTotal) / players;
+
+        console.log(`birdie total>>> ${birdieTotal}`);
+        console.log(`Court total>>> ${courtTotal}`);
+        console.log(`Total cost>>> ${totalCost}`);
     };
 
     return (
         <StyledFormContainer>
             <StyledForm onSubmit={handleSubmit}>
+                {/* Number of Players */}
+                <StyledLabel htmlFor="players">Number of Players</StyledLabel>
+                <StyledInput
+                    type="text"
+                    id="players"
+                    name="players"
+                    onChange={handleChange}
+                    autoComplete="off"
+                ></StyledInput>
                 {/* Court numbers */}
                 <StyledLabel htmlFor="courts">Number of Courts</StyledLabel>
                 <StyledInput
@@ -121,9 +141,8 @@ const FormComponent = () => {
                     onChange={handleChange}
                     autoComplete="off"
                 ></StyledInput>
-                <Link to="/cost">
-                    <StyledButton type="submit">Submit</StyledButton>
-                </Link>
+
+                <StyledButton type="submit">Submit</StyledButton>
             </StyledForm>
         </StyledFormContainer>
     );
