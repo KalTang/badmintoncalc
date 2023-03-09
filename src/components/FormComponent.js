@@ -6,19 +6,28 @@ const StyledFormContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 2rem;
 `;
 
 const StyledForm = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    margin-top: 10%;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
 `;
+
+// const BirdieContainer = styled.div`
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: center;
+//     align-items: center;
+// `;
 
 const StyledLabel = styled.label`
     font-weight: bold;
-    margin-bottom: 0.3rem;
+    margin-bottom: 1.3rem;
     color: #61dafb;
 `;
 
@@ -28,10 +37,14 @@ const StyledInput = styled.input`
     border-bottom: 1px solid #61dafb;
     background-color: transparent;
     color: #61dafb;
-    font-size: 1.2em;
+    font-size: 1.2rem;
     font-weight: 600;
     text-align: center;
-    margin-bottom: 2em;
+    margin-bottom: 1rem;
+
+    &:focus {
+        border-color: #61dafb;
+    }
 `;
 
 const StyledButton = styled.button`
@@ -124,6 +137,9 @@ const FormComponent = () => {
                     autoComplete="off"
                 ></StyledInput>
                 {/* birdies */}
+
+                {/* birdie section  */}
+
                 <StyledLabel htmlFor="birdieCost">Birde Cost</StyledLabel>
                 <StyledInput
                     type="text"
@@ -142,7 +158,9 @@ const FormComponent = () => {
                     autoComplete="off"
                 ></StyledInput>
 
-                <StyledButton type="submit">Submit</StyledButton>
+                <Link to="cost">
+                    <StyledButton type="submit">Submit</StyledButton>
+                </Link>
             </StyledForm>
         </StyledFormContainer>
     );
